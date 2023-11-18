@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    
     private float speed = 6.0f;
     private CharacterController characterController;
     private float gravity = -9.8f; 
@@ -26,4 +27,5 @@ public class Movement : MonoBehaviour
 
         characterController.Move(movement);
     }
+    
 }

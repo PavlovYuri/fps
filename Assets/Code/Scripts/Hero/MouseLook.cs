@@ -16,13 +16,14 @@ public class MouseLook : MonoBehaviour
     public float rotationHorizontalSpeed = 5.0f;
     public float rotationVerticalSpeed = 5.0f;
 
-    public float minVert = -45.0f;
-    public float maxVert = 45.0f;
+    public float minVert = -75.0f;
+    public float maxVert = 75.0f;
 
     private float rotationX = 0;
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null) rb.freezeRotation = true;
     }
