@@ -1175,6 +1175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
+  - component: {fileID: 963194229}
   - component: {fileID: 963194226}
   m_Layer: 0
   m_Name: Main Camera
@@ -1257,6 +1258,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1570405681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd029befcf6a6542935660ea493bc29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axes: 2
+  rotationHorizontalSpeed: 5
+  rotationVerticalSpeed: 5
+  minVert: -45
+  maxVert: 45
 --- !u!850595691 &1095120749
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1338,7 +1356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd029befcf6a6542935660ea493bc29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes: 0
+  axes: 1
   rotationHorizontalSpeed: 5
   rotationVerticalSpeed: 5
   minVert: -75
@@ -1815,10 +1833,10 @@ PrefabInstance:
       addedObject: {fileID: 1570405678}
     - targetCorrespondingSourceObject: {fileID: 7999848106252826114, guid: 767cd27ab59b9fc4f98361473d5cd6c7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1570405676}
+      addedObject: {fileID: 1570405682}
     - targetCorrespondingSourceObject: {fileID: 7999848106252826114, guid: 767cd27ab59b9fc4f98361473d5cd6c7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1570405682}
+      addedObject: {fileID: 1570405676}
     - targetCorrespondingSourceObject: {fileID: 7999848106252826114, guid: 767cd27ab59b9fc4f98361473d5cd6c7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1570405683}
