@@ -24,6 +24,7 @@ public class MouseLook : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null) rb.freezeRotation = true;
     }
