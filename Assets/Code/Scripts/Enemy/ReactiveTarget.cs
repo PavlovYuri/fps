@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ReactiveTarget : MonoBehaviour
 {
-    private EnemyAI enemyAI;
+    private EnemyCharacter enemyCharacter;
     private void Start()
     {
-        enemyAI = GetComponent<EnemyAI>();
+        enemyCharacter = GetComponent<EnemyCharacter>();
     }
 
     public void TakeDamage(int damage)
     {
-        if (enemyAI != null) enemyAI.ReactToHit(damage);
-        if (enemyAI.health <= 0)
+        if (enemyCharacter != null) enemyCharacter.ReactToHit(damage);
+        if (enemyCharacter.health <= 0)
         {
-            enemyAI._alive = false;
+            enemyCharacter._alive = false;
             StartCoroutine(DieCoroutine(3));
         }
         
