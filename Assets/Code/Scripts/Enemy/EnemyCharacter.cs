@@ -34,13 +34,12 @@ public class EnemyCharacter : MonoBehaviour
 
             if (hitObject.GetComponent<CharacterController>())
             {
-                if (fireball == null)
-                {
-                    int randFireball = Random.Range(0, fireballsPrefab.Length);
-                    fireball = Instantiate(fireballsPrefab[randFireball]);
-                    fireball.transform.position = transform.TransformPoint(Vector3.forward * 1.5f);
-                    fireball.transform.rotation = transform.rotation;
-                }
+
+                int randFireball = Random.Range(0, fireballsPrefab.Length);
+                fireball = Instantiate(fireballsPrefab[randFireball]);
+                fireball.transform.position = transform.TransformPoint(Vector3.forward * 1.5f);
+                //fireball.transform.rotation = transform.rotation;
+
             }
         }
     }

@@ -14,12 +14,13 @@ public class Fireball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject hero = collision.gameObject;
-        HeroCharacter character = hero.GetComponent<HeroCharacter>();
+        Debug.Log("collision!");
+        GameObject collisionObject = collision.gameObject;
+        HeroCharacter character = collisionObject.GetComponent<HeroCharacter>();
         if (character != null)
         {
             character.Hurt(damage);
         }
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

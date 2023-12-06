@@ -32,7 +32,6 @@ public class PatrolBehaviour : StateMachineBehaviour
     {
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
-            Debug.Log("Go to patrol!");
             agent.SetDestination(points[Random.Range(0, points.Count)].position);
         }        
 
