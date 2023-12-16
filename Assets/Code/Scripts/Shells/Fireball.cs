@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    public float speed = 10.0f;
+    public float speed = 20.0f;
     public int damage = 10;
 
     private void Update()
@@ -14,7 +14,6 @@ public class Fireball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collision!");
         GameObject collisionObject = collision.gameObject;
         HeroCharacter character = collisionObject.GetComponent<HeroCharacter>();
         if (character != null)

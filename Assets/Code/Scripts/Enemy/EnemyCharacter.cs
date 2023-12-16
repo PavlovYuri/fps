@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemyCharacter : MonoBehaviour
 {
     public float fireballSpeed = 5.0f;
     public float obstacleRange = 5.0f;
+    public float fireRate = 0.5f;
+    private float nextTimeToFire;
     public bool _alive = true;
     public int health = 100;
 
@@ -18,26 +19,26 @@ public class EnemyCharacter : MonoBehaviour
         _alive = true;
     }
 
-    void Update()
-    {
-        
-    }
-
     public void Attack()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
+        if (Time.time >= nextTimeToFire) {
+            nextTimeToFire = Time.time + fireRate;
 
-        if (Physics.Raycast(ray, out hit))
-        {
-            GameObject hitObject = hit.transform.gameObject;
+            Ray ray = new Ray(transform.position, transform.forward);
+            RaycastHit hit;
 
-            if (hitObject.GetComponent<CharacterController>())
+            if (Physics.Raycast(ray, out hit))
             {
-                int randFireball = Random.Range(0, fireballsPrefab.Length);
-                fireball = Instantiate(fireballsPrefab[randFireball]);
-                fireball.transform.position = transform.TransformPoint(Vector3.forward * 1.5f);
-                //fireball.transform.rotation = transform.rotation;
+                GameObject hitObject = hit.transform.gameObject;
+
+                if (hitObject.GetComponent<CharacterController>())
+                {
+                    int randFireball = Random.Range(0, fireballsPrefab.Length);
+                    fireball = Instantiate(fireballsPrefab[randFireball]);
+
+                    fireball.transform.position = transform.TransformPoint(Vector3.forward * 1.5f);
+                    fireball.transform.rotation = transform.rotation;
+                }
             }
         }
     }

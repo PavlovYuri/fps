@@ -2456,8 +2456,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  degreeStep: 45
   rotationSpeed: 7
+  chaseRange: 20
+  attackRange: 10
+  degreeStep: 45
   eyeHeight: 4
   remainingDistance: 0
   stoppingDistance: 0
@@ -3828,6 +3830,10 @@ PrefabInstance:
     - target: {fileID: 1066701637990812772, guid: f0d4f6b7ade73c34cab424ef43c32b15, type: 3}
       propertyPath: m_Constraints
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3616912246308324860, guid: f0d4f6b7ade73c34cab424ef43c32b15, type: 3}
+      propertyPath: fireRate
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4076269519638745762, guid: f0d4f6b7ade73c34cab424ef43c32b15, type: 3}
       propertyPath: m_LocalScale.x

@@ -8,8 +8,8 @@ public class EnemyMovement : MonoBehaviour
     public float speed = 3.0f;
     public float rotationSpeed = 7.0f;
 
-    public float chaseRange = 10.0f;
-    public float attackRange = 5.0f;
+    public float chaseRange = 20.0f;
+    public float attackRange = 10.0f;
 
     public float degreeStep = 45.0f;
     public float eyeHeight = 4.0f;
