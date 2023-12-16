@@ -9,6 +9,7 @@ public class AttackBehaviour : StateMachineBehaviour
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        enemyMovement = animator.GetComponent<EnemyMovement>();
         hero = GameObject.FindGameObjectWithTag("Hero").transform;
     }
 
