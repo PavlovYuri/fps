@@ -6,8 +6,9 @@ public class IdleBehaviour : StateMachineBehaviour
 {
     float timer;
     float timeToPatrol = 5.0f;
+
+    EnemyMovement enemyMovement; 
     Transform hero;
-    float chaseRange = 10.0f;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -21,7 +22,7 @@ public class IdleBehaviour : StateMachineBehaviour
         if (timer > timeToPatrol) animator.SetBool("isPatrolling", true);
 
         float distance = Vector3.Distance(animator.transform.position, hero.transform.position);
-        if (distance < chaseRange) animator.SetBool("isChasing", true);
+        if (distance < enemyMovement.chaseRange) animator.SetBool("isChasing", true);
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -6,38 +6,35 @@ using UnityEngine.AI;
 public class ChaseBehaviour : StateMachineBehaviour
 {
     EnemyCharacter enemyCharacter;
-    NavMeshAgent agent;
+    EnemyMovement enemyMovement;
     Transform hero;
-    float attackRange = 5.0f;
-    float chaseRange = 10.0f;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemyCharacter = animator.GetComponent<EnemyCharacter>();
-        agent = animator.GetComponent<NavMeshAgent>();
-        agent.speed = 6.0f;
+        enemyMovement = animator.GetComponent<EnemyMovement>();
 
         hero = GameObject.FindGameObjectWithTag("Hero").transform;
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.SetDestination(hero.position);
+        enemyMovement.SetDestination(hero.position);
         float distance = Vector3.Distance(animator.transform.position, hero.position);
 
-        if (distance < attackRange) 
+        if (distance < enemyMovement.attackRange) 
         {
             animator.SetBool("isAttacking", true);
             enemyCharacter.Attack();
         }
 
-        if (distance > chaseRange) animator.SetBool("isChasing", false); 
+        if (distance > enemyMovement.chaseRange) animator.SetBool("isChasing", false); 
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.SetDestination(agent.transform.position);
-        agent.speed = 3.5f;
+        enemyMovement.SetDestination(enemyMovement.transform.position);
+        enemyMovement.speed = 3.5f;
     }
 
 }

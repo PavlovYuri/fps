@@ -8,11 +8,12 @@ public class PatrolBehaviour : StateMachineBehaviour
 {
     float timer;
     float timeToIdle = 10.0f;
-    NavMeshAgent agent;
+
+    EnemyMovement enemyMovement;
+    Vector3 target;
     List<Transform> points = new List<Transform>();
 
     Transform hero;
-    float chaseRange = 10.0f;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer = 0;
@@ -22,29 +23,35 @@ public class PatrolBehaviour : StateMachineBehaviour
             points.Add(t);
         }
 
-        agent = animator.GetComponent<NavMeshAgent>();
-        agent.SetDestination(points[0].position);
+        enemyMovement = animator.GetComponent<EnemyMovement>();
+        enemyMovement.SetDestination(animator.transform.position);
 
         hero = GameObject.FindGameObjectWithTag("Hero").transform;
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (agent.remainingDistance <= agent.stoppingDistance)
+        if (enemyMovement.remainingDistance <= enemyMovement.stoppingDistance)
         {
-            agent.SetDestination(points[Random.Range(0, points.Count)].position);
-        }        
+            target = points[Random.Range(0, points.Count)].position;
+            enemyMovement.CalculateDistance(target);
+        }  
+        else
+        {
+            enemyMovement.SetDestination(target);
+            enemyMovement.CalculateDistance(target);
+        }
 
         timer += Time.deltaTime;
         if (timer > timeToIdle) animator.SetBool("isPatrolling", false);
 
         float distance = Vector3.Distance(animator.transform.position, hero.position);
-        if (distance < chaseRange) animator.SetBool("isChasing", true);
+        if (distance < enemyMovement.chaseRange) animator.SetBool("isChasing", true);
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agent.SetDestination(agent.transform.position);
+        enemyMovement.SetDestination(enemyMovement.transform.position);
     }
 
 }
