@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RayShooting : MonoBehaviour
 {
-    public int damage = 20;
-    public float range = 100.0f;
     public float impactForce = 30.0f;
-    public float fireRate = 0.5f;
 
     private float nextTimeToFire;
 
     private Transform weapon;
+    private WeaponCharacter weaponCharacter;
+    private Transform weaponHolder;
     private Camera camera;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
@@ -20,8 +20,11 @@ public class RayShooting : MonoBehaviour
     private void Start()
     {
         weapon = transform.parent;
-        camera = weapon.transform.parent.GetComponent<Camera>();
+        weaponCharacter = weapon.GetComponent<WeaponCharacter>();
+        weaponHolder = weapon.parent;
+        camera = weaponHolder.transform.parent.GetComponent<Camera>();
         Light pointLight = muzzleFlash.GetComponentInChildren<Light>();
+        muzzleFlash.Stop();
         pointLight.enabled = false;
     }
 
@@ -29,7 +32,7 @@ public class RayShooting : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
         {
-            nextTimeToFire = Time.time + fireRate;
+            nextTimeToFire = Time.time + weaponCharacter.fireRate;
             Shoot();
         }
     }
@@ -38,13 +41,13 @@ public class RayShooting : MonoBehaviour
     {
         muzzleFlash.Play();
         RaycastHit hit;
-        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, range))
+        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, weaponCharacter.range))
         {
             Debug.Log(hit.transform.name);
             ReactiveTarget target = hit.transform.GetComponent<ReactiveTarget>();
             if (target != null)
             {
-                target.TakeDamage(damage); 
+                target.TakeDamage(weaponCharacter.damage); 
             }
 
             if (hit.rigidbody != null)
