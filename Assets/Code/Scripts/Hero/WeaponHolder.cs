@@ -6,6 +6,7 @@ public class WeaponHolder : MonoBehaviour
 {
     public int weaponIndicator;
     public GameObject[] weapons = new GameObject[2];
+    public KeyCode[] hotKeys = new KeyCode[2];
     private WeaponCharacter weaponCharacter;
     public int weaponIndex = 0;
     void Start()
@@ -24,6 +25,13 @@ public class WeaponHolder : MonoBehaviour
         {
             weaponIndex--;
             SwitchWeapon(weaponIndex);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            if (Input.GetKeyDown(hotKeys[i]))
+            {
+                SwitchWeapon(i);
+            }
         }
     }
 
