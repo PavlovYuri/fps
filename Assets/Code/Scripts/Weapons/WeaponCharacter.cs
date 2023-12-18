@@ -5,9 +5,9 @@ using UnityEngine.UIElements;
 
 public class WeaponCharacter : MonoBehaviour
 {
-    public bool _isFirearms = true;
-    public int damage = 10;
-    public float range = 100.0f;
-    public float fireRate = 0.5f;
-    public int catridgeClip = 6;
+    public bool _isFirearms;
+    public int damage;
+    public float range;
+    public float fireRate;
+    public int catridgeClip;
 }

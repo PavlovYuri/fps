@@ -45,10 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6a5bb1435f531438411c5fe7f411dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  range: 100
   impactForce: 30
-  fireRate: 0.5
   muzzleFlash: {fileID: 5832687398483040685}
   impactEffect: {fileID: 3655234287852517463, guid: 6047d115bbf3a3a4a9b473e9f5276537, type: 3}
 --- !u!1001 &551333061294621304
@@ -216,10 +213,35 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ed97f0b4d0fef6f4bbec725391180785, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6043459375027583529}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ed97f0b4d0fef6f4bbec725391180785, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4692990135322153283}
   m_SourcePrefab: {fileID: 100100000, guid: ed97f0b4d0fef6f4bbec725391180785, type: 3}
 --- !u!4 &2464215932722785943 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ed97f0b4d0fef6f4bbec725391180785, type: 3}
   m_PrefabInstance: {fileID: 2717955535645297020}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2988551739830760493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ed97f0b4d0fef6f4bbec725391180785, type: 3}
+  m_PrefabInstance: {fileID: 2717955535645297020}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4692990135322153283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2988551739830760493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7461975bb3b42ef49bf082f0091108c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isFirearms: 1
+  damage: 20
+  range: 100
+  fireRate: 0.5
+  catridgeClip: 6
