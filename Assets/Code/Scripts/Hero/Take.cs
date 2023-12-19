@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class Take : MonoBehaviour
     public Transform pos;
     public InventoryManager inventoryManager;
     public Camera camera;
+    public WeaponHolder weaponHolder;
 
     void Start()
     {
@@ -67,7 +69,23 @@ public class Take : MonoBehaviour
                 items[i] = item;
 
             } 
+            if (item.itemClass == "weapon")
+            {
+                GameObject weapon = Instantiate(Resources.Load(item.prefabPath, typeof(GameObject))) as GameObject;
+                
+                weaponHolder.weapons.Add(weapon);
+                weapon.transform.SetParent(weaponHolder.transform, false);
+                weapon.transform.localPosition = new Vector3(item.xHandPosition, item.yHandPosition, item.zHandPosition);
+                weapon.transform.localRotation = Quaternion.Euler(item.xHandRotation, item.yHandRotation, item.zHandRotation);
 
+                if (weapon.GetComponent<WeaponCharacter>()._isFirearms)
+                {
+                    Transform shotPoint = weapon.transform.Find("ShotPoint");
+                    RayShooting rayShooting = shotPoint.GetComponent<RayShooting>();
+                    Transform weaponHolder = weapon.transform.parent;
+                    rayShooting.camera = weaponHolder.transform.parent.GetComponent<Camera>();
+                }
+            }
             Destroy(item.gameObject);
             break;
         }
