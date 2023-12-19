@@ -310,7 +310,8 @@ MonoBehaviour:
   damage: 15
   range: 20
   fireRate: 0.7
-  catridgeClip: 16
+  catridgeClip: 7
+  bulletsNumber: 21
 --- !u!114 &3719441147706817486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,6 +335,6 @@ MonoBehaviour:
   yHandRotation: 0
   zHandRotation: -8.65
   descriptionItem: 
-  iconPath: 
+  iconPath: Icons/m1911
   prefabPath: Prefabs/Weapons/m1911
   itemClass: weapon

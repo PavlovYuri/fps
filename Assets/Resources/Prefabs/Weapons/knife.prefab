@@ -100,6 +100,7 @@ MonoBehaviour:
   range: 5
   fireRate: 0
   catridgeClip: 0
+  bulletsNumber: 0
 --- !u!114 &752889904723414562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ MonoBehaviour:
   yHandRotation: 0
   zHandRotation: 0
   descriptionItem: 
-  iconPath: 
+  iconPath: Icons/knife
   prefabPath: Prefabs/Weapons/knife
   itemClass: weapon
 --- !u!65 &3305519066247005712

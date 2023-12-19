@@ -18,7 +18,7 @@ public class HeroCharacter : MonoBehaviour
 
     void Update()
     {
-        heroHealthText.text = "" + health;
+        heroHealthText.text = "Health" + "\n" + health;
 
         if (_gameOver)
         {

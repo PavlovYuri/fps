@@ -53,7 +53,6 @@ public class Take : MonoBehaviour
     {
         for (int i = 0; i < items.Count; i++)
         {
-
             if (items[i].id == item.id && item._isStackable == true)
             {
                 items[i] = item;
@@ -67,8 +66,12 @@ public class Take : MonoBehaviour
             else if (items[i].id == 0)
             {
                 items[i] = item;
-
             } 
+            else
+            {
+                continue;
+            }
+
             if (item.itemClass == "weapon")
             {
                 GameObject weapon = Instantiate(Resources.Load(item.prefabPath, typeof(GameObject))) as GameObject;
@@ -77,6 +80,7 @@ public class Take : MonoBehaviour
                 weapon.transform.SetParent(weaponHolder.transform, false);
                 weapon.transform.localPosition = new Vector3(item.xHandPosition, item.yHandPosition, item.zHandPosition);
                 weapon.transform.localRotation = Quaternion.Euler(item.xHandRotation, item.yHandRotation, item.zHandRotation);
+                weapon.gameObject.SetActive(false);
 
                 if (weapon.GetComponent<WeaponCharacter>()._isFirearms)
                 {

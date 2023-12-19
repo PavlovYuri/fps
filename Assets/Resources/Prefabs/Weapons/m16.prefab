@@ -179,7 +179,8 @@ MonoBehaviour:
   damage: 20
   range: 40
   fireRate: 1.2
-  catridgeClip: 40
+  catridgeClip: 30
+  bulletsNumber: 90
 --- !u!114 &7869399351696182856
 MonoBehaviour:
   m_ObjectHideFlags: 0

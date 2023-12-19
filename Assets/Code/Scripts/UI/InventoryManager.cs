@@ -4,13 +4,17 @@ using UnityEditor.Search;
 using UnityEngine;
 using TMPro;
 using Microsoft.Unity.VisualStudio.Editor;
+using UnityEngine.UIElements;
+using Unity.VisualScripting;
 
 public class InventoryManager : MonoBehaviour
 {
     public List<Item> weapons;
     public List<Item> shells;
     public List<Item> others;
+    public GameObject weaponHolder;
     public GameObject crosshair;
+    public GameObject gameplayPanel;
     public GameObject inventoryPanel;
     public GameObject weaponPanel;
     public GameObject shellPanel;
@@ -18,6 +22,10 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         InitializeInventoryPart(weapons, weaponPanel.transform.childCount);
+        Transform firstWeapon = weaponHolder.transform.GetChild(0);
+        Item item = firstWeapon.GetComponent<Item>(); 
+        weapons.Insert(0, item);
+
         InitializeInventoryPart(shells, shellPanel.transform.childCount);
         InitializeInventoryPart(others, otherPanel.transform.childCount);
     }
@@ -27,6 +35,7 @@ public class InventoryManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             crosshair.SetActive(!crosshair.activeSelf);
+            gameplayPanel.SetActive(!gameplayPanel.activeSelf);
             inventoryPanel.SetActive(!inventoryPanel.activeSelf);
             DisplayItems(weapons, weaponPanel);
             DisplayItems(shells, shellPanel);
@@ -46,7 +55,7 @@ public class InventoryManager : MonoBehaviour
 
     void DisplayItems(List<Item> items, GameObject panel)
     {
-        for (int i  = 0; i < items.Count; i++)
+        for (int i = 0; i < items.Count; i++)
         {
             if (items[i].id != 0)
             {

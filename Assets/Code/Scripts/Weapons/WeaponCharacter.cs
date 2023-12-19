@@ -10,4 +10,5 @@ public class WeaponCharacter : MonoBehaviour
     public float range;
     public float fireRate;
     public int catridgeClip;
+    public int bulletsNumber;
 }

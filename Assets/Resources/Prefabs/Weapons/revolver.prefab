@@ -254,6 +254,7 @@ MonoBehaviour:
   range: 100
   fireRate: 0.5
   catridgeClip: 6
+  bulletsNumber: 18
 --- !u!114 &5862881045703868191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +278,7 @@ MonoBehaviour:
   yHandRotation: -91.16
   zHandRotation: 179.763
   descriptionItem: 
-  iconPath: 
+  iconPath: Icons/revolver
   prefabPath: Prefabs/Weapons/revolver
   itemClass: weapon
 --- !u!65 &5443406582880920330
