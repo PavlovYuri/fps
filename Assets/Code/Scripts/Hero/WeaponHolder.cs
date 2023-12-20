@@ -35,7 +35,7 @@ public class WeaponHolder : MonoBehaviour
         }
         for (int i = 0; i < 5; i++)
         {
-            if (Input.GetKeyDown(hotKeys[i]))
+            if (i<weapons.Count && Input.GetKeyDown(hotKeys[i]))
             {
                 SwitchWeapon(i);
             }

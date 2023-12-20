@@ -10,12 +10,13 @@ public class PatrolBehaviour : StateMachineBehaviour
     EnemyMovement enemyMovement;
     Vector3 target;
     List<Transform> points = new List<Transform>();
+    
 
     Transform hero;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer = 0;
-        Transform pointsObject = GameObject.FindGameObjectWithTag("EnemyPoints").transform;
+        Transform pointsObject = enemyMovement.enemyPoints.transform;
         foreach (Transform t in pointsObject) 
         {
             points.Add(t);

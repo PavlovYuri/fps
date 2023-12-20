@@ -17,6 +17,8 @@ public class EnemyMovement : MonoBehaviour
     public float remainingDistance;
     public float stoppingDistance;
 
+    public GameObject enemyPoints;
+
     public void CalculateDistance(Vector3 target)
     {
         Vector3 pointRadius = new Vector3(target.x + 1.0f, target.y, target.z + 1.0f);

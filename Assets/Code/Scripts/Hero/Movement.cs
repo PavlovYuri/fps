@@ -17,6 +17,12 @@ public class Movement : MonoBehaviour
     }
     private void Update()
     {
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = 10.0f;
+        } else {
+            speed = 6.0f;
+        }
         float deltaX = Input.GetAxis("Horizontal") * speed;
         float deltaZ = Input.GetAxis("Vertical") * speed;
 

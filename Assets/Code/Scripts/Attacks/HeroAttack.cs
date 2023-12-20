@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroAttack : MonoBehaviour
+public class HeroAttack : SoundManager
 {
     public WeaponHolder weaponHolder;
     public ColdWeaponAttack coldWeaponAttack;
@@ -33,7 +33,9 @@ public class HeroAttack : MonoBehaviour
             if (Input.GetMouseButton(0) && Time.time >= rayShooting.nextTimeToFire)
             {
                 rayShooting.nextTimeToFire = Time.time + weaponCharacter.fireRate;
+                //PlaySounds(sounds[0]);
                 rayShooting.Shoot();
+                
             }
         }
 
