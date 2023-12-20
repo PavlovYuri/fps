@@ -13,7 +13,6 @@ public class RayShooting : MonoBehaviour
     public Camera camera;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
-
     private WeaponHolder weaponHolder;
 
     public void Shoot()
