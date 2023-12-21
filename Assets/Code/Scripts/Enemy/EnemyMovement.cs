@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
     public float remainingDistance;
     public float stoppingDistance;
 
-    public GameObject enemyPoints;
+    public GameObject patrolPoints;
 
     public void CalculateDistance(Vector3 target)
     {

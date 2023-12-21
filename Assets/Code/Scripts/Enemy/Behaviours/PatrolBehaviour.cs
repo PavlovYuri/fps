@@ -16,16 +16,19 @@ public class PatrolBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timer = 0;
-        Transform pointsObject = enemyMovement.enemyPoints.transform;
-        foreach (Transform t in pointsObject) 
+        enemyMovement = animator.GetComponent<EnemyMovement>();
+
+        Transform pointsObject = enemyMovement.patrolPoints.transform;
+
+        foreach (Transform t in pointsObject)
         {
             points.Add(t);
         }
 
-        enemyMovement = animator.GetComponent<EnemyMovement>();
         enemyMovement.SetDestination(animator.transform.position);
 
         hero = GameObject.FindGameObjectWithTag("Hero").transform;
+
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
